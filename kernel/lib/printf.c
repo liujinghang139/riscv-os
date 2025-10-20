@@ -46,29 +46,6 @@ static void print_number(int num, int base, int sign)
     consputc(buf[i]);
 }
 
-// 若你需要打印 64 位指针，继续保留（或使用）这个版本：
-//static void printptr_u64(uint64_t v)
-//{
- // consputc('0'); consputc('x');
-  //for (int i = (int)(sizeof(uint64_t) * 2) - 1; i >= 0; --i) {
-   // consputc(digits[(v >> (i * 4)) & 0xF]);
- // }
-//}
-
-//static int printint(long xx, int base, int sign) {
- // char buf[32];
- // unsigned long x;
-  //int i = 0, n = 0;
-
-  //if (sign && xx < 0) { x = (unsigned long)(-xx); sign = 1; }
-  //else { x = (unsigned long)xx; sign = 0; }
-
-  //do { buf[i++] = digits[x % base]; x /= base; } while (x);
-
-  //if (sign) buf[i++] = '-';
-  //while (--i >= 0) { putc_wrap(buf[i]); n++; }
- // return n;
-//}
 
 static int printptr(uint64_t x) {
   int n = 0;
@@ -127,3 +104,26 @@ void panic(const char *s) {
   for(;;){ __asm__ volatile("wfi"); }
 }
 
+// 若你需要打印 64 位指针，继续保留（或使用）这个版本：
+//static void printptr_u64(uint64_t v)
+//{
+ // consputc('0'); consputc('x');
+  //for (int i = (int)(sizeof(uint64_t) * 2) - 1; i >= 0; --i) {
+   // consputc(digits[(v >> (i * 4)) & 0xF]);
+ // }
+//}
+
+//static int printint(long xx, int base, int sign) {
+// char buf[32];
+  //unsigned long x;
+ // int i = 0, n = 0;
+
+  //if (sign && xx < 0) { x = (unsigned long)(-xx); sign = 1; }
+  //else { x = (unsigned long)xx; sign = 0; }
+
+  //do { buf[i++] = digits[x % base]; x /= base; } while (x);
+
+ // if (sign) buf[i++] = '-';
+  //while (--i >= 0) { putc_wrap(buf[i]); n++; }
+  //return n;
+//}

@@ -17,46 +17,28 @@ void test_printf_edge_cases() {
     printf("NULL string: %s\n", (char*)0);
     printf("Empty string: %s\n", "");
 }
-//void main() {
-   // consoleinit(); // 如已在 start() 里调过可省略
-    //ansi_clear_screen();
-   // ansi_goto_xy(1, 1);
-   // printf("Screen cleared. Hello!\n");
 
-    //printf_color(32, -1, 1, "Green & bold line\n"); // 绿色加粗
-    //printf_color(31, 47, 0, "Red on White\n");      // 红字白底
-
-    //ansi_goto_xy(5, 1);
-    //printf("This line will be cleared partially...");
-    //ansi_goto_xy(5, 20);
-   // ansi_clear_eol();   // 从列20清到行尾
-
-    //ansi_goto_xy(7, 1);
-   // printf("Now clear whole line:\n");
-    //ansi_clear_line();
-
-    //for(;;) { __asm__ volatile("wfi"); }
-//}
 void main() {
     printf("Hello myOS! RISC-V single core console ready.\n");
-   // test_printf_basic();
-   // test_printf_edge_cases();
-   // printf("All tests done.\n");
-     
-    ansi_clear_screen();
+   test_printf_basic();
+    test_printf_edge_cases();
+     printf("All tests done.\n");
+     ansi_clear_screen();
     ansi_goto_xy(1, 1);
-   printf("Screen cleared. Hello!\n");
+    printf("Screen cleared. Hello!\n");
     printf_color(32, -1, 1, "Green & bold line\n"); // 绿色加粗
     printf_color(31, 47, 0, "Red on White\n");      // 红字白底
-
+    
     ansi_goto_xy(5, 1);
     printf("This line will be cleared partially...");
     ansi_goto_xy(5, 20);
     ansi_clear_eol();   // 从列20清到行尾
 
     ansi_goto_xy(7, 1);
-   printf("Now clear whole line:\n");
+    printf("Now clear whole line:\n");
     ansi_clear_line();
+ 
+    
      for(;;) { __asm__ volatile("wfi"); }
     //char line[64];
     //for (;;) {
@@ -69,7 +51,4 @@ void main() {
         //printf("you typed (%d): %s\n", n, line);
   //  }
 }
-//void main() {
-    //uart_puts("Hello myOS!\n");
-    //while (1) {}
-//}
+
