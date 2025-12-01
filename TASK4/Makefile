@@ -30,7 +30,11 @@ SRCS = \
   kernel/mm/kalloc.c \
   kernel/mm/vm.c \
   scripts/test_memory.c \
-  kernel/devs/string.c
+  kernel/devs/string.c \
+  kernel/trap/trap.c \
+  kernel/trap/timer.c \
+  kernel/boot/kernelvec.S \
+  scripts/test_trap.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(OBJS:.S=.o)

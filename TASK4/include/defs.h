@@ -47,11 +47,25 @@ pagetable_t create_pagetable(void);
 int map_page(pagetable_t pt, uint64 va, uint64 pa, uint64 size, int perm);
 void map_region(pagetable_t pt, uint64 va, uint64 pa, uint64 size, int perm);
 pte_t *walk(pagetable_t pagetable, uint64 va, int alloc);
+
+
+// trap.c
+void trap_init(void);
+void kerneltrap(void);
+void handle_exception(uint64, uint64);
+
+// timer.c
+void timer_init(void);
+void timer_interrupt(void);
+uint64 get_time(void);
 //用于测试内存分配
 void test_physical_memory();
 void test_pagetable();
 void test_virtual_memory();
-
+//用于测试时钟中断
+void test_timer_interrupt(void);
+void test_exception_handling(void);
+void test_interrupt_overhead(void); 
 //define assert()
 #define assert(expr) \
     do { \
