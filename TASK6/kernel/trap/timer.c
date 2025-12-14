@@ -37,12 +37,11 @@ void timer_interrupt() {
     ticks++;
 
     // 3. (可选) 打印信息证明中断正在工作 [cite: 961]
-   // if((ticks % 100) == 0) {
-       // printf("timer_interrupt: ticks=%d\n", ticks);
-    //}
+    if((ticks % 100) == 0) {
+        printf("timer_interrupt: ticks=%d\n", ticks);
+    }
     if(myproc() != NULL && myproc()->state == RUNNING) {
         yield();
     }
-    // 4. 触发任务调度 (实验5内容，此处暂时留空或仅做标记)
-    // yield();
+   
 }

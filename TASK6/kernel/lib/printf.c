@@ -99,7 +99,7 @@ int printf(const char *fmt, ...) {
 }
 
 void panic(const char *s) {
-  intr_off();
+  //intr_off();
   panicked = 1;
   printf("panic: %s\n", s);
   for(;;){ __asm__ volatile("wfi"); }

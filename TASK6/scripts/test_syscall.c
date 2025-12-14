@@ -107,11 +107,12 @@ void test_syscall_performance(void) {
     }
     
     uint64 end_time = get_time();
-    printf("10000 getpid() calls took %l cycles\n", end_time - start_time);
+    printf("10000 getpid() calls took %d cycles\n", (uint64)end_time - (uint64)start_time);
 }
 
 // 测试入口
 void run_syscall_tests(void) {
+    printf("============ Test Running =============\n");
     test_basic_syscalls();
     test_parameter_passing();
     test_security();
@@ -123,11 +124,6 @@ int main(void) {
     write(1, "Hello World\n", 12);
     write(1, "Init Loop...\n", 13);
 
-    volatile int i = 0; 
-    while(1) {
-        i++;
-        // 可以加一个延时打印，证明还在运行
-        if (i % 10000000 == 0) write(1, ".", 1);
-    }
+    run_syscall_tests();
     return 0; // 永远不应该执行到这里
 }

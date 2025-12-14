@@ -198,7 +198,7 @@ void scheduler(void) {
   struct cpu *c = mycpu();
   
   c->proc = 0;
-   printf("Scheduler: starting loop\n"); // 打印一次证明进来了
+   // printf("Scheduler: starting loop\n"); // 打印一次证明进来了
   for(;;) {
     // 开启中断，避免死锁
     intr_on();
@@ -208,13 +208,13 @@ void scheduler(void) {
       acquire(&p->lock);
       if(p->state == RUNNABLE) {
         // 找到可运行进程，切换过去 [cite: 1236-1241]
-        printf("Scheduler: switching to pid %d\n", p->pid);
+        // printf("Scheduler: switching to pid %d\n", p->pid);
         p->state = RUNNING;
         c->proc = p;
         
         // 执行上下文切换：保存调度器上下文 -> 恢复进程上下文
         swtch(&c->context, &p->context);
-         printf("Scheduler: pid %d yielded/slept\n", p->pid);
+         // printf("Scheduler: pid %d yielded/slept\n", p->pid);
         // 进程 yield 或 sleep 后返回这里
         c->proc = 0;
         found = 1;

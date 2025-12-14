@@ -10,7 +10,8 @@ extern int sys_exit(void);
 extern int sys_wait(void);
 extern int sys_getpid(void);
 extern int sys_write(void);
-// extern int sys_uptime(void); // 如果还没实现可以先注释掉
+extern int sys_uptime(void); // 如果还没实现可以先注释掉
+extern int sys_read(void);
 // extern int sys_open(void);   // 如果没文件系统，可以先让它返回 -1
 static int (*syscalls[])(void) = {
   [SYS_fork]    sys_fork,
@@ -18,6 +19,8 @@ static int (*syscalls[])(void) = {
   [SYS_wait]    sys_wait,
   [SYS_getpid]  sys_getpid,
   [SYS_write]   sys_write,
+  [SYS_read]    sys_read,
+  [SYS_uptime]  sys_uptime,
 };
 
 // 获取第 n 个整型参数 (a0-a5) [cite: 1493]

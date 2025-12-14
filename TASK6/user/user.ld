@@ -8,6 +8,7 @@ SECTIONS
   
   /* 代码段 */
   .text : {
+    *(.text.start)
     *(.text .text.*)
   }
 

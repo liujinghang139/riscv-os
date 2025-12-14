@@ -1,4 +1,5 @@
 #include "syscall.h"
+.section .text.start
 .global _start
 _start:
     # 1. 【关键修复】初始化 gp (Global Pointer) 为 0
