@@ -18,7 +18,6 @@ bss_clear:
         j bss_clear
 bss_done:
         #jump to start() in start.c
-       
-        call main
+        call start
 spin:
         j spin

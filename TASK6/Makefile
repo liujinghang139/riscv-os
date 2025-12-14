@@ -16,7 +16,7 @@ CFLAGS += -I include
 LDFLAGS = -T kernel.ld -nostdlib
 
 # QEMU 通用参数
-QEMUFLAGS = -machine virt -nographic -bios default -cpu rv64,sstc=true
+QEMUFLAGS = -machine virt -nographic -bios none -cpu rv64,sstc=true
 
 # source files
 SRCS = \
@@ -34,7 +34,14 @@ SRCS = \
   kernel/trap/trap.c \
   kernel/trap/timer.c \
   kernel/boot/kernelvec.S \
+  kernel/proc/proc.c \
+  kernel/proc/spinlock.c \
+  kernel/trap/trampoline.S \
+  kernel/trap/syscall.c \
+  kernel/trap/sysproc.c \
+  kernel/boot/swtch.S \
   scripts/test_trap.c \
+  scripts/test_process.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJS := $(OBJS:.S=.o)

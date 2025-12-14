@@ -22,7 +22,7 @@ void start(void){
   //允许 S 模式访问时钟寄存器 (sie)
   w_sie(r_sie() | SIE_SEIE | SIE_STIE | SIE_SSIE);
   // 只有开启这个，S 模式才能访问 stimecmp 寄存器
-  //w_menvcfg(r_menvcfg() | (1L << 63));
+  w_menvcfg(r_menvcfg() | (1L << 63));
   w_mcounteren(0xffffffff);
   //  配置 PMP 以允许 S 模式访问物理内存 (非常重要！)
   w_pmpaddr0(0x3fffffffffffffull);
