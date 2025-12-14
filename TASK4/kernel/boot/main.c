@@ -17,7 +17,7 @@ void main() {
     // 开启全局中断，等待时钟中断发生
     intr_on();
     test_timer_interrupt();
-    //test_exception_handling();
+    test_exception_handling();
     //test_interrupt_overhead(); 
     //printf_color(32, -1, 1, "ALL test is ok!\n"); // 绿色加粗
     intr_off(); 

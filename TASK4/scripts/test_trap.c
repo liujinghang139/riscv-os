@@ -25,13 +25,18 @@ uint64 start_time = get_time();
  interrupt_count, (int)end_time - start_time);
  }
  
-void test_exception_handling(void) {
-printf("Testing exception handling...\n");
-// 测试除零异常（如果支持）
-// 测试非法指令异常 
-// 测试内存访问异常
 
-printf("Exception tests completed\n"); 
+void test_exception_handling(void) {
+    printf("\n=== TEST: Exception Handling ===\n");
+    // 触发一次 S 模式 ecall
+    printf("Triggering supervisor ecall...\n");
+    __asm__ __volatile__("ecall");
+    printf("ecall handled.\n");
+
+    // 触发一次非法指令异常（用 0x00000000 作为非法指令）
+    printf("Triggering illegal instruction...\n");
+    __asm__ __volatile__(".word 0x00000000");
+    printf("illegal instruction handled.\n");
 }
 void test_interrupt_overhead(void) {
 // 测量中断处理的时间开销
