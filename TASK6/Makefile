@@ -131,6 +131,5 @@ kernel/proc/proc.o: include/test_code.h
 
 # --- 更新 clean 目标 ---
 # (请将这部分合并到你原有的 clean 目标中，不要重复定义)
-clean:
-	rm -f $(OBJS) $(USER_OBJS) kernel.elf kernel.bin user.elf test.bin include/test_code.h
+
 
