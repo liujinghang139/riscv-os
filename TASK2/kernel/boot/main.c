@@ -20,23 +20,25 @@ void test_printf_edge_cases() {
 
 void main() {
     printf("Hello myOS! RISC-V single core console ready.\n");
-   test_printf_basic();
+    
+    test_printf_basic();
     test_printf_edge_cases();
-     printf("All tests done.\n");
+    printf("All tests done.\n");
+    printf_color(32, -1, 1, "Green & bold line\n"); // 绿色加粗
+    printf_color(31, 47, 0, "Red on White\n");      // 红字白底
      ansi_clear_screen();
     ansi_goto_xy(1, 1);
     printf("Screen cleared. Hello!\n");
-    printf_color(32, -1, 1, "Green & bold line\n"); // 绿色加粗
-    printf_color(31, 47, 0, "Red on White\n");      // 红字白底
-    
     ansi_goto_xy(5, 1);
     printf("This line will be cleared partially...");
     ansi_goto_xy(5, 20);
     ansi_clear_eol();   // 从列20清到行尾
 
-    ansi_goto_xy(7, 1);
+    // ansi_goto_xy(7, 1);
     printf("Now clear whole line:\n");
     ansi_clear_line();
+   
+    
  
     
      for(;;) { __asm__ volatile("wfi"); }

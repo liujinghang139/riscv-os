@@ -1,7 +1,7 @@
 // ansi.c - ANSI escape helpers for serial/console
 #include <stdarg.h>
-#include "defs.h"
-#include "ansi.h"
+#include "../trap/defs.h"
+#include "../trap/ansi.h"
 
 static inline void putstr(const char *s) {
   while (*s) {
