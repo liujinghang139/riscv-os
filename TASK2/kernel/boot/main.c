@@ -1,5 +1,5 @@
 #include "defs.h"
-#include "ansi.h"
+#include "../trap/ansi.h"
 extern void uart_puts(const char *s);
 void test_printf_basic() {
     printf("Testing integer: %d\n", 42);
@@ -34,7 +34,7 @@ void main() {
     ansi_goto_xy(5, 20);
     ansi_clear_eol();   // 从列20清到行尾
 
-    // ansi_goto_xy(7, 1);
+    ansi_goto_xy(7, 1);
     printf("Now clear whole line:\n");
     ansi_clear_line();
    
